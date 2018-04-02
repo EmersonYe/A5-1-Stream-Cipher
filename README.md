@@ -2,7 +2,8 @@
 Java implementation of A5/1 Stream Cypher to better understand shift register crypto.
 
 ## Example output:
-```Beginning default run through with default key
+```
+Beginning default run through with default key
 Encrypting "Hello World!"
 Hello World! encrypted is: 011001100011001101001010111110001110111110001010100100100001110111011001110101000010111110110011
 Decrypting 011001100011001101001010111110001110111110001010100100100001110111011001110101000010111110110011
