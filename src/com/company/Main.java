@@ -14,21 +14,13 @@ public class Main {
     static String key;
 
     public static void main(String[] args) {
-        String plainText;
-        String cipherText;
-        // key should be string of 64 binary values
         // default key argument
-        key = "11011100 11010011 10010010 00000111 10101010 10101100 01100110 11001000";
-        // remove whitespace from key
-        key = key.replaceAll(" ", "").replaceAll("\n", "");
+        key = "11011100 11010011 10010010 00000111 10101010 10101100 01100110 11001000".replaceAll(" ", "").replaceAll("\n", "");
 
-        plainText = "Hello World!";
-        cipherText = encrypt(plainText);
-        System.out.println(plainText + " encrypted is: " + cipherText);
+        // default run through to show functionality without requiring user input
+        defaultRunThrough();
 
-        plainText = decrypt(cipherText);
-        System.out.println(cipherText + " decrypted is: " + plainText);
-
+        // capture user input for control
         Scanner scanner = new Scanner(System.in);
         String in;
         printMenu();
@@ -37,11 +29,11 @@ public class Main {
             switch (in) {
                 case "q": break;
                 case "1": System.out.println("Enter plain text to encrypt: ");
-                    plainText = scanner.nextLine();
+                    String plainText = scanner.nextLine();
                     System.out.printf("%s encrypted is: %s\n", plainText, encrypt(plainText));
                     break;
                 case "2": System.out.println("Enter cipher text to decrypt: ");
-                    cipherText = scanner.nextLine();
+                    String cipherText = scanner.nextLine();
                     System.out.printf("%s decrypted is: %s\n", cipherText, decrypt(cipherText));
                     break;
                 case "3": System.out.println("Enter new 64 bit key: ");
@@ -52,8 +44,9 @@ public class Main {
                     }
                     else
                         key = newKey;
+                    break;
                 default:
-                    System.out.println("Please enter 1,2,or q");
+                    System.out.println("Invalid input. Please enter 1, 2, 3, or q");
                     break;
             }
             printMenu();
@@ -170,6 +163,20 @@ public class Main {
         System.out.println("* To enter new key, enter 3: *");
         System.out.println("* To quit, enter q:          *");
         System.out.println("******************************");
+    }
+
+    private static void defaultRunThrough(){
+        System.out.println("Beginning default run through with default key\nEncrypting \"Hello World!\"");
+
+        String plainText = "Hello World!";
+        String cipherText = encrypt(plainText);
+        System.out.println(plainText + " encrypted is: " + cipherText);
+
+        System.out.println("Decrypting " + cipherText);
+        plainText = decrypt(cipherText);
+        System.out.println(cipherText + " decrypted is: " + plainText);
+        System.out.println("Ending default run through.\n");
+
     }
 
     // for debug purposes
