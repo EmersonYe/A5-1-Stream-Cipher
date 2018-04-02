@@ -66,4 +66,5 @@ Enter cipher text to decrypt:
 * To quit, enter q:          *
 ******************************
 q
-Goodbye```
+Goodbye
+```
